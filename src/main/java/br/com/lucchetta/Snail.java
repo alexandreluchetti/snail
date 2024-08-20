@@ -6,11 +6,11 @@ import java.util.Scanner;
 
 public class Snail {
 
-    private final Scanner SCANNER;
+    private Scanner scanner;
     private int[][] matrix;
 
-    public Snail() {
-        this.SCANNER = new Scanner(System.in);
+    public Snail(Scanner scanner) {
+        this.scanner = scanner;
     }
 
     public void start() {
@@ -49,23 +49,23 @@ public class Snail {
     }
 
     private int mainMenu() {
-        System.out.println("========== SNAIL PROJECT ==========");
+        System.out.println("\n========== SNAIL PROJECT ==========");
         System.out.println("1 - Jogar");
         System.out.println("0 - Sair");
         System.out.print("Escolha uma opcao: ");
-        return this.SCANNER.nextInt();
+        return this.scanner.nextInt();
     }
 
     private int chooseMatrixLength() {
         System.out.print("\nDigite o tamanho N da matriz NxN: ");
-        return this.SCANNER.nextInt();
+        return this.scanner.nextInt();
     }
 
     private int typeOfGameMenu() {
         System.out.println("\n1 - Numeros sequenciais");
         System.out.println("2 - Escolher os numeros");
         System.out.print("Escolha uma opcao: ");
-        return this.SCANNER.nextInt();
+        return this.scanner.nextInt();
     }
 
     private void sequentialNumbersTypeOfGame(int matrixLength) {
@@ -101,7 +101,7 @@ public class Snail {
         for (int i = 0; i < matrixLength; i++) {
             for (int j = 0; j < matrixLength; j++) {
                 System.out.print("Elemento [" + i + "][" + j + "]: ");
-                matrix[i][j] = SCANNER.nextInt();
+                matrix[i][j] = scanner.nextInt();
             }
         }
 
