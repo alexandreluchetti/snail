@@ -80,15 +80,15 @@ public class Resistors {
         return scanner.nextLine();
     }
 
-    private void execute(String resistorValue) {
+    public String execute(String resistorValue) {
         resistorValue = filterResisterValue(resistorValue);
 
         if (resistorValue.contains(THOUSAND_OR_MORE)) {
-            getThousandOrMore(resistorValue);
+            return getThousandOrMore(resistorValue);
         } else if (resistorValue.contains(MILLION_OR_MORE)) {
-            getMillionOrMore(resistorValue);
+            return getMillionOrMore(resistorValue);
         } else {
-            getLessThanThousand(resistorValue);
+            return getLessThanThousand(resistorValue);
         }
     }
 
@@ -114,23 +114,23 @@ public class Resistors {
         }
     }
 
-    private void getThousandOrMore(String resistorValue) {
+    private String getThousandOrMore(String resistorValue) {
         int baseValue = getBaseValue(resistorValue);
         firstBand = COLOR_CODE.get(baseValue / 10);
         secondBand = COLOR_CODE.get(baseValue % 10);
         multiplier = COLOR_CODE.get(2);
-        getResult();
+        return getResult();
     }
 
-    private void getMillionOrMore(String resistorValue) {
+    private String getMillionOrMore(String resistorValue) {
         int baseValue = getBaseValue(resistorValue);
         firstBand = COLOR_CODE.get(baseValue / 10);
         secondBand = COLOR_CODE.get(baseValue % 10);
         multiplier = COLOR_CODE.get(5);
-        getResult();
+        return getResult();
     }
 
-    private void getLessThanThousand(String resistorValue) {
+    private String getLessThanThousand(String resistorValue) {
         int value = getBaseValue(resistorValue);
         if (value < 10) {
             firstBand = COLOR_CODE.get(0);
@@ -145,11 +145,13 @@ public class Resistors {
             secondBand = COLOR_CODE.get((value / 10) % 10);
             multiplier = COLOR_CODE.get(1);
         }
-        getResult();
+        return getResult();
     }
 
-    private void getResult() {
-        System.out.println("Resultado => " + firstBand + " " + secondBand + " " + multiplier + " " + tolerance);
+    private String getResult() {
+        String result = "Resultado => " + firstBand + " " + secondBand + " " + multiplier + " " + tolerance;
+        System.out.println(result);
         System.out.println();
+        return result;
     }
 }
