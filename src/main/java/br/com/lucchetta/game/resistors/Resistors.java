@@ -1,4 +1,4 @@
-package br.com.lucchetta;
+package br.com.lucchetta.game.resistors;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -53,7 +53,8 @@ public class Resistors {
                 return false;
             } else if (choice == 1) {
                 String resistorValue = enterValueMenu();
-                execute(resistorValue);
+                String result = execute(resistorValue);
+                System.out.println(result + "\n");
             } else {
                 System.out.println("\n### Digite uma opcao valida! ###\n");
             }
@@ -80,7 +81,7 @@ public class Resistors {
         return scanner.nextLine();
     }
 
-    public String execute(String resistorValue) {
+    private String execute(String resistorValue) {
         resistorValue = filterResisterValue(resistorValue);
 
         if (resistorValue.contains(THOUSAND_OR_MORE)) {
@@ -149,9 +150,7 @@ public class Resistors {
     }
 
     private String getResult() {
-        String result = "Resultado => " + firstBand + " " + secondBand + " " + multiplier + " " + tolerance;
-        System.out.println(result);
-        System.out.println();
-        return result;
+        return "Resultado => " + firstBand + " " + secondBand + " " + multiplier + " " + tolerance;
     }
+
 }

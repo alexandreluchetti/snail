@@ -1,4 +1,7 @@
-package br.com.lucchetta;
+package br.com.lucchetta.game;
+
+import br.com.lucchetta.game.resistors.Resistors;
+import br.com.lucchetta.game.snail.Snail;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package br.com.lucchetta;
+package br.com.lucchetta.game.snail;
 
 import java.util.ArrayList;
 import java.util.List;
