@@ -1,4 +1,4 @@
-# Snail Project
+# Snail
 
 Projeto com dois desafios.
 1. [Desafio Resistores – Código de Cores
